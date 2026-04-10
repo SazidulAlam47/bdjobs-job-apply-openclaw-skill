@@ -1,4 +1,4 @@
-# BDJobs Job Apply
+# BDJobs Job Apply (OpenClaw Skill)
 
 BDJobs Job Apply is an OpenClaw skill for automating the BDJobs workflow end to end: save a resume and profile, log in, refresh applied jobs, search fresh openings, rank the best matches, auto-apply, undo an application, and update expected salary.
 
