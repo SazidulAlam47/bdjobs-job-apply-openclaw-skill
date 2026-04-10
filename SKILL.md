@@ -111,20 +111,17 @@ When the user asks to update salary for an applied job:
 
 ## Files used by this skill
 
-All BDJobs files live in:
-- `/root/.openclaw/workspace/skills/bdjobs-job-apply/data/`
-
 Important files:
-- `resume.md`
-- `userDetails.json`
-- `loggedInData.json`
-- `appliedJobIds.json`
-- `notLikedJobIds.json`
-- `preferences.json`
-- `suggestedJobs.json`
-- `lastApplyResult.json`
-- `lastUndoResult.json`
-- `lastSalaryUpdateResult.json`
+- `data/resume.md`
+- `data/userDetails.json`
+- `data/loggedInData.json`
+- `data/appliedJobIds.json`
+- `data/notLikedJobIds.json`
+- `data/preferences.json`
+- `data/suggestedJobs.json`
+- `data/lastApplyResult.json`
+- `data/lastUndoResult.json`
+- `data/lastSalaryUpdateResult.json`
 
 ## Script entry points
 
