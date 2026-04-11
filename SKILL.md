@@ -111,7 +111,7 @@ When the user asks to update salary for an applied job:
 
 ## Files used by this skill
 
-Important files:
+Important files live inside this skill folder:
 - `data/resume.md`
 - `data/userDetails.json`
 - `data/loggedInData.json`
@@ -125,6 +125,7 @@ Important files:
 
 ## Script entry points
 
+Run scripts from the skill folder, not the workspace root:
 - `scripts/init-job-profile.js`
 - `scripts/bdjobs-login.js`
 - `scripts/bdjobs-refresh-applied.js`
