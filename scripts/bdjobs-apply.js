@@ -129,12 +129,14 @@ function upsertAppliedJobIds(file, jobId) {
     upsertAppliedJobIds(path.join(dataDir, 'appliedJobIds.json'), Number(jobId));
   }
 
+  const matchingScore = apply.body?.data?.matchingScore;
   const result = {
     jobId: Number(jobId),
     jobTitle,
     companyName,
     applyStatus: apply.body,
     applied,
+    matchingScore,
     link: `https://bdjobs.com/h/details/${jobId}`
   };
 

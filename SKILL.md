@@ -88,6 +88,7 @@ When the user asks to auto-apply:
    - read `MinimumSalary`
    - use it as `expectedSalary` in `JobApplyPost`
    - call `JobApplyPost`
+   - if successful, always show `matchingScore`
    - if successful, add the job ID to `data/appliedJobIds.json`
    - save result in `data/lastApplyResult.json`
 6. Send Telegram notification only after success
