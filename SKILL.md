@@ -59,7 +59,7 @@ When the user asks for fresh jobs:
 
 1. Clear `data/suggestedJobs.json`
 2. Run `scripts/bdjobs-refresh-applied.js` to update `data/appliedJobIds.json` from `GetApplyPositionInfoV1`
-3. Run `scripts/bdjobs-fetch-jobs.js` with `--keyword`, `--isFresher`, `--pg`, and `--jobLocation` to fetch raw job lists from `GetJobSearch`
+3. Run `scripts/bdjobs-fetch-jobs.js` with `--keyword`, `--isFresher`, `--postedWithin`, `--pg`, and `--jobLocation` to fetch raw job lists from `GetJobSearch`
 4. Run `scripts/bdjobs-filter-jobs.js` to exclude already-applied and not-liked job IDs before `Job-Details`
 5. For selected job IDs, run `scripts/bdjobs-job-details.js` to fetch full job details
 6. Let AI compare the raw job details with `data/resume.md` and `data/preferences.json`
@@ -130,6 +130,13 @@ Run scripts from the skill folder, not the workspace root:
 - `scripts/bdjobs-login.js`
 - `scripts/bdjobs-refresh-applied.js`
 - `scripts/bdjobs-fetch-jobs.js`
+
+`bdjobs-fetch-jobs.js` accepts:
+- `--keyword=...`
+- `--isFresher=true|false`
+- `--postedWithin=1|2|3|4|5` (days, to fetch newer jobs)
+- `--pg=...`
+- `--jobLocation=...`
 - `scripts/bdjobs-filter-jobs.js`
 - `scripts/bdjobs-job-details.js`
 - `scripts/bdjobs-rank-jobs.js`

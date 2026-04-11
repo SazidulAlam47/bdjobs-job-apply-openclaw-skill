@@ -16,11 +16,11 @@ function requestJson(url) {
   });
 }
 
-function buildSearchUrl({ keyword, isFresher, pg, jobLocation }) {
+function buildSearchUrl({ keyword, isFresher, pg, jobLocation, postedWithin }) {
   const u = new URL('https://api.bdjobs.com/Jobs/api/JobSearch/GetJobSearch');
   const params = {
     Icat: '', industry: '', category: '', org: '', jobNature: '', Fcat: '', location: jobLocation || '',
-    Qot: '', jobType: '', jobLevel: '', postedWithin: '', deadline: '', keyword: keyword || '', pg: String(pg || 1),
+    Qot: '', jobType: '', jobLevel: '', postedWithin: String(postedWithin || ''), deadline: '', keyword: keyword || '', pg: String(pg || 1),
     qAge: '', Salary: '', experience: '', gender: '', MExp: '', genderB: '', MPostings: '', MCat: '', version: '',
     rpp: '50', Newspaper: '', armyp: '', QDisablePerson: '', pwd: '', workplace: '', facilitiesForPWD: '',
     SaveFilterList: '', UserFilterName: '', HUserFilterName: '', earlyJobAccess: '', isPro: '0', ToggleJobs: 'true',
@@ -35,10 +35,11 @@ function buildSearchUrl({ keyword, isFresher, pg, jobLocation }) {
   const isFresher = (process.argv.find(v => v.startsWith('--isFresher='))?.split('=')[1] || 'true') === 'true';
   const pages = Number(process.argv.find(v => v.startsWith('--pages='))?.split('=')[1] || '1') || 1;
   const jobLocation = process.argv.find(v => v.startsWith('--jobLocation='))?.split('=')[1] || '';
+  const postedWithin = Number(process.argv.find(v => v.startsWith('--postedWithin='))?.split('=')[1] || '') || '';
 
   const out = [];
   for (let pg = 1; pg <= pages; pg++) {
-    const url = buildSearchUrl({ keyword, isFresher, pg, jobLocation });
+    const url = buildSearchUrl({ keyword, isFresher, pg, jobLocation, postedWithin });
     const res = await requestJson(url);
     const jobs = Array.isArray(res.body?.data) ? res.body.data : [];
     out.push(...jobs.map(job => ({
