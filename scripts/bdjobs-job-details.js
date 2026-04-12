@@ -17,8 +17,9 @@ function requestJson(url) {
 }
 
 (async () => {
-  const jobId = process.argv.find(v => v.startsWith('--jobId='))?.split('=')[1];
-  if (!jobId) throw new Error('Missing --jobId=');
+  const argv = process.argv.slice(2);
+  const jobId = argv.find(v => v.startsWith('--jobId='))?.split('=')[1] || argv.find(v => !v.startsWith('--'));
+  if (!jobId) throw new Error('Missing job id. Use --jobId=... or a positional arg.');
   const url = new URL('https://gateway.bdjobs.com/jobapply/api/JobSubsystem/Job-Details');
   url.searchParams.set('jobId', String(jobId));
   const res = await requestJson(url.toString());

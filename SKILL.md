@@ -135,11 +135,11 @@ Run scripts from the skill folder, not the workspace root:
 `bdjobs-fetch-jobs.js` accepts:
 - `--keyword=...`
 - `--isFresher=true|false`
-- `--postedWithin=1|2|3|4|5` (days, to fetch newer jobs)
+- `--postedWithin=...` (optional day count, any number)
 - `--pg=...`
 - `--jobLocation=...`
 - `scripts/bdjobs-filter-jobs.js`
-- `scripts/bdjobs-job-details.js`
+- `scripts/bdjobs-job-details.js` accepts `--jobId=...` or a positional job id
 - `scripts/bdjobs-rank-jobs.js`
 - `scripts/bdjobs-apply.js`
 - `scripts/bdjobs-undo.js`
